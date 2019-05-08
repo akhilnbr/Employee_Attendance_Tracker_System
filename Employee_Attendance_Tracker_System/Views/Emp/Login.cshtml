@@ -1,0 +1,99 @@
+﻿@model Employee_Attendence_Tracker.Models.Employee
+@{
+    ViewBag.Title = "Login";
+}
+<style>
+    .container {
+        width: 600px;
+    }
+    
+   .body-content{
+       padding-left:15px;
+       padding-right:15px;
+       padding-top:50px;
+   }
+   .breadcrumb
+   {
+       background-color: #f5f5f5;
+   }
+    body {
+        font-family:'Times New Roman', Times, serif;
+        background-image: url('../../images/SplitShire-03692-1800x1200.jpg');
+    }
+   
+</style>
+
+<div class="breadcrumb">
+   
+
+
+
+    <h2 class="text-center text-primary table-hover "><b>Login</b></h2><span></span>
+   
+    <div class="breadcrumb">
+
+        <table class="table  table-condensed ">
+            
+            @Html.AntiForgeryToken()
+
+
+            @using (Html.BeginForm("Login", "Emp", FormMethod.Post))
+
+            {
+
+                <tr>
+                    <td>@Html.DisplayName("Email")</td>
+                    <td>@Html.TextBox("email", "", new {@class = "form-control", type = "text"})</td>
+                   
+
+                </tr>
+                <tr>
+                    <td>@Html.DisplayName("Password")</td>
+
+                    <td>@Html.TextBox("password", "", new {@class = "form-control", type = "password"})</td>
+
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Remember me @Html.CheckBox("check", isChecked: false)</td>
+
+                </tr>
+                <tr style="position: center">
+
+                    <td><input type="submit" value="Sign In" class="btn btn-success" style="margin-left: 105%" onclick="showerror()"/></td>
+
+
+
+                </tr>
+            }
+
+
+
+
+
+
+        </table>
+
+    </div>
+
+
+
+</div>
+
+
+
+<script type="text/javascript">
+
+
+    function showerror()
+    {
+    
+
+        if(@ViewBag.message==true)
+        {
+            alert("Sorry");
+        }
+    }
+</script>
+
+    

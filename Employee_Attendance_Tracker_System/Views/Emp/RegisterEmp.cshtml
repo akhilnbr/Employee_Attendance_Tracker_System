@@ -1,0 +1,107 @@
+﻿
+@model Employee_Attendence_Tracker.Models.Employee
+
+@{
+    ViewBag.Title = "RegisterEmp";
+}
+
+<h2>Employee Panel</h2>
+
+
+
+
+
+<div class="breadcrumb">
+    <div></div>
+    <h2 class="text-success text-left text-primary table-striped table-hover" ><b>REGISTER</b></h2>
+
+    <div class="breadcrumb">
+
+        <table class="table  table-responsive ">
+
+            @using (Html.BeginForm("RegisterEmp", "Emp", FormMethod.Post))
+
+            {
+
+
+                <tr>
+
+                    <td>First Name</td>
+
+                    <td>@Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })</td>
+
+              
+
+                    <td>Last Name</td>
+
+                    <td>@Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Gender</td>
+
+                    <td>
+                        Male
+                        @Html.RadioButtonFor(m => m.Gender, "male")
+                        Female
+                        @Html.RadioButtonFor(m => m.Gender, "Female")
+                    </td>
+                </tr>
+                <tr>
+                    <td>Birth Date</td>
+                   
+                    <td><input type="date" value="Dob" name="Dob" /></td>
+
+                </tr>
+                <tr>
+                    <td>place</td>
+                    <td>@Html.TextBoxFor(s=>s.Phone ,new {@class = "form-control"})</td>
+
+                    @*<td>
+                        @Html.DropDownListFor(model => model.Course,
+                            new SelectList(ViewBag.Active, "CourseName", "CourseName"),
+                            "Select Course",
+                            new { @class = "form-control" })
+                </td>*@
+                @*<td>@Html.DropDownListFor(m=>m.Course, @ViewBag.CourseList, "select list")</td>*@
+            </tr>
+                <tr>
+                    <td>Designation</td>
+                    <td>@Html.TextBoxFor(m => m.Designation, new { @class = "form-control" })</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>@Html.TextBoxFor(m => m.Email, new { @class = "form-control" })</td>
+                </tr>
+                <tr>
+                    <td>Confirm Email</td>
+                    <td>@Html.TextBox("Confirm Email", "", new { @class = "form-control" })
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td>@Html.TextBoxFor(m => m.Password, new { @class = "form-control" })</td>
+                </tr>
+                <tr>
+                    <td>Confirm Password</td>
+                    <td>@Html.TextBoxFor(m => m.ConfirmPassword, new { @class = "form-control" })</td>
+                </tr>
+                <tr>
+
+                    <td></td>
+                    <td>
+                        <input type="submit" value="Save" class="btn btn-warning" onclick="confirms()" />
+                    </td>
+
+                </tr>
+
+            }
+
+        </table>
+
+    </div>
+
+
+
+</div>

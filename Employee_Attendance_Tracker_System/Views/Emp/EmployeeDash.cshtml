@@ -1,0 +1,94 @@
+﻿
+
+
+
+
+@{
+    ViewBag.Title = "Employee";
+}
+
+
+<div class="breadcrumb" >
+
+    <h2 class="text-center text-primary table-hover "><b>Welcome @TempData["EmployeeDash"] </b></h2><span></span>
+   
+    
+    <div class="breadcrumb">
+
+        <table class="table  table-hover ">
+            @Html.AntiForgeryToken()
+            
+            <tr>
+                <td>
+                    <p>Date:<input type="text" value="selectdate" name="date" id="#datepick"/></p>
+                </td>
+            </tr>
+
+            @using (Html.BeginForm("EmployeeDash", "Emp", FormMethod.Post))
+
+            {
+               
+
+                <tr>
+
+
+                    <td>
+                        Date
+
+                    </td>
+                    <td>
+                        Login
+                    </td>
+                    <td>
+                        Logout
+                    </td>
+                </tr>
+
+
+                foreach (var item in ViewBag.details)
+                {
+                    <tr>
+
+
+                        <td>
+                            @item
+                        </td>
+                        
+                    </tr>
+
+
+
+                }
+
+                <tr>
+                    <td>
+                        <input type="submit" value="signout" name="command" new class="btn btn-danger" />
+                    </td>
+                </tr>
+
+            }
+
+
+
+
+
+
+        </table>
+
+
+
+    </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+

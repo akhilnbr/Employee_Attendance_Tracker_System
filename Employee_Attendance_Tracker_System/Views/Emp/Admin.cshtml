@@ -1,0 +1,159 @@
+﻿
+@model List<Employee_Attendence_Tracker.Models.LogDetails>
+
+@{
+        ViewBag.Title = "Admin";
+}
+
+
+
+<div class="breadcrumb">
+
+    <h2 class="text-center text-primary table-hover "><b>Welcome Admin</b></h2><span></span>
+
+
+    <div class="breadcrumb">
+
+
+        @using (Html.BeginForm("Admin", "Emp", FormMethod.Post))
+        {
+
+            <table class="table  table-hover ">
+                @Html.AntiForgeryToken()
+
+
+                <tr>
+                    <td>
+                        Picke  a date:
+                    </td>
+                    <td>
+                        <input type="text" name="date" id="datepicker" class="form-control"  />
+                       
+                    </td>
+                    <td>
+                        <input type="submit" value="check" class="btn btn-danger" />
+                    </td>
+                </tr>
+
+
+
+                <tr>
+                    <td>
+                        Employee Name
+
+                    </td>
+                    <td>
+                        Date
+                    </td>
+                    <td>
+                        Login
+                    </td>
+                    <td>
+                        Logout
+                    </td>
+                </tr>
+                @ViewBag.adminalert
+                @if (!ViewData.ModelState.IsValid)
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td>@item.employee</td>
+                            <td>@item.date</td>
+                            <td>@item.login</td>
+                            <td>@item.logout</td>
+
+                        </tr>
+
+                    }
+
+                }
+                
+
+            </table>
+
+           
+        }
+
+
+      
+
+    </div>
+
+
+
+</div>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+@section scripts
+    {
+   
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
+
+    <script>
+        $(function () {
+            $("#datepicker").datepicker({
+                showButtonPanel: true,
+                dateFormat: 'yy-mm-dd'
+            });
+        });
+    </script>
+    <script>
+        function fun(datepicker )
+        {
+            alert("yoou selected"+datepicker);
+        }
+    </script>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@*@section scripts
+    {
+        <script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js"></script>
+        <link href="https://cdn.syncfusion.com/ej2/material.css" rel="stylesheet">
+
+
+        <script>
+            $(function() {
+                var datepicker = new ej.calendars.DatePicker({ width: "255px" }).Format;
+                datepicker.appendTo('#datepicker');
+
+
+            });
+
+
+        </script>
+    }*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
